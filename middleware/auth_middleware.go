@@ -5,6 +5,7 @@ import (
 	"context"
 	"fmt"
 	"net/http"
+	"strconv"
 	"strings"
 
 	"github.com/golang-jwt/jwt/v5"
@@ -46,14 +47,11 @@ func AuthMiddleware(next http.Handler) http.Handler {
 		if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
 			fmt.Println("Пользователь:", claims["username"])
 			fmt.Println("Время истечения:", claims["exp"])
+			str := strconv.FormatFloat(claims["sub"].(float64), 'f', -1, 64)
+			ctx := context.WithValue(r.Context(), "userID", str)
+			next.ServeHTTP(w, r.WithContext(ctx))
 		} else {
 			fmt.Println("Токен недействителен")
 		}
-
-		claims := &jwt.RegisteredClaims{}
-		// Добавляем ID пользователя в контекст запроса
-		userID := claims.Subject
-		ctx := context.WithValue(r.Context(), "userID", userID)
-		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }

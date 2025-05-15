@@ -48,12 +48,11 @@ func (s *AuthService) Login(email, password string) (string, error) {
 	var mySigningKey = []byte(config.LoadConfig().JWTSecret)
 
 	// Создание нового токена
-	token := jwt.New(jwt.SigningMethodHS256)
-
-	// Установка claims (данных)
-	claims := token.Claims.(jwt.MapClaims)
-	claims["username"] = user.Username
-	claims["exp"] = time.Now().Add(time.Hour * 72).Unix() // Время истечения токена
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+		"sub":      user.ID,
+		"username": user.Username,
+		"exp":      time.Now().Add(time.Hour * 72).Unix(), // Время истечения токена
+	})
 
 	// Подпись токена
 	tokenString, err := token.SignedString(mySigningKey)
