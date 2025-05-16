@@ -1,0 +1,430 @@
+{
+	"info": {
+		"_postman_id": "92176466-9c70-4c81-b835-97747ae9d596",
+		"name": "GoBank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33366567"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"client@example.com\",\r\n    \"username\": \"client\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"client@example.com\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Email",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2MDAwMTMsInVzZXJuYW1lIjoiZGVzZXJ0Zm94In0.ZtooQzA5SMai8SZcg1uN8nXKGRMiRWmfsiYAUUfuHUo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"fess.2002@mail.ru\",\r\n    \"amount\": 55555.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/email",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"email"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Wallet create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2MDI1OTQsInN1YiI6MywidXNlcm5hbWUiOiJkZXNlcnRmb3gifQ.oIC2xYe24Nwa4nu5JNBwaf6JawTF559bDyTKhVC2h9I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/wallet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"wallet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CBR",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cbr",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cbr"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VCard create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2MDI1OTQsInN1YiI6MywidXNlcm5hbWUiOiJkZXNlcnRmb3gifQ.oIC2xYe24Nwa4nu5JNBwaf6JawTF559bDyTKhVC2h9I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vcard",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vcard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VCard get all",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2MDI1OTQsInN1YiI6MywidXNlcm5hbWUiOiJkZXNlcnRmb3gifQ.oIC2xYe24Nwa4nu5JNBwaf6JawTF559bDyTKhVC2h9I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vcard",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vcard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Predict balance",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2MDI1OTQsInN1YiI6MywidXNlcm5hbWUiOiJkZXNlcnRmb3gifQ.oIC2xYe24Nwa4nu5JNBwaf6JawTF559bDyTKhVC2h9I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/balance?days=7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"balance"
+					],
+					"query": [
+						{
+							"key": "days",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get balance",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2MDI1OTQsInN1YiI6MywidXNlcm5hbWUiOiJkZXNlcnRmb3gifQ.oIC2xYe24Nwa4nu5JNBwaf6JawTF559bDyTKhVC2h9I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/balance?year=2025&month=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"balance"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2025"
+						},
+						{
+							"key": "month",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Credit create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2MDI1OTQsInN1YiI6MywidXNlcm5hbWUiOiJkZXNlcnRmb3gifQ.oIC2xYe24Nwa4nu5JNBwaf6JawTF559bDyTKhVC2h9I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 500.50,\r\n    \"rate\": 2.2,\r\n    \"term\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/credit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"credit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transfer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2MDI1OTQsInN1YiI6MywidXNlcm5hbWUiOiJkZXNlcnRmb3gifQ.oIC2xYe24Nwa4nu5JNBwaf6JawTF559bDyTKhVC2h9I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"to_account_id\": 4,\r\n    \"amount\": 2.2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transfer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Credit info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2MDI1OTQsInN1YiI6MywidXNlcm5hbWUiOiJkZXNlcnRmb3gifQ.oIC2xYe24Nwa4nu5JNBwaf6JawTF559bDyTKhVC2h9I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/credit?credit_id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"credit"
+					],
+					"query": [
+						{
+							"key": "credit_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Wallet get",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NTYxNDcsInN1YiI6NCwidXNlcm5hbWUiOiIifQ.gNfcvFUIR99lAMUeJprLFrQIZaVMCKbMoCDbSBfxf7g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/wallet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"wallet"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
